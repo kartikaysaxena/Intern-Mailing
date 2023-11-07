@@ -16,7 +16,7 @@ var transporter = nodemailer.createTransport({
   secure: true,
   port: 465,
   auth: {
-    user: process.env.USER,
+    user: process.env.EMAIL,
     pass: process.env.PASS
   }
 });
@@ -28,7 +28,7 @@ async function main() {
 
     const mailPromises = json.map(async item => {
       const mailOptions = {
-        from: process.env.USER,
+        from: process.env.EMAIL,
         to: item.email,
         subject: 'Requesting for Internship',
         text: textData,
